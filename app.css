@@ -1,0 +1,268 @@
+body {
+    background: #151719;
+}
+
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader span {
+    width: 100px;
+    height: 20px;
+    background: white;
+    margin: 3px 1px;
+    animation: loading 3s ease-in-out infinite forwards;
+}
+
+
+
+.star {
+    background-color: transparent;
+    margin: 50px 0;
+    position: relative;
+    display: block;
+    color: #f6bd60;
+    width: 0px;
+    height: 0px;
+    border-right: 100px solid transparent;
+    border-bottom: 70px solid #f6bd60;
+    border-left: 100px solid transparent;
+    transform: rotate(35deg);
+    animation: turn 6s ease-in-out infinite forwards;
+}
+
+.star:before {
+    border-bottom: 80px solid #f6bd60;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    position: absolute;
+    height: 0;
+    width: 0;
+    top: -45px;
+    left: -65px;
+    display: block;
+    content: '';
+    transform: rotate(-35deg);
+}
+
+.star:after {
+    position: absolute;
+    display: block;
+    color: #f6bd60;
+    top: 3px;
+    left: -105px;
+    width: 0px;
+    height: 0px;
+    border-right: 100px solid transparent;
+    border-bottom: 70px solid #f6bd60;
+    border-left: 100px solid transparent;
+    transform: rotate(-70deg);
+    content: '';
+}
+
+.star {
+    transform: scale(0.3) rotate(35deg);
+}
+
+.wrapper {
+    height: 120px;
+}
+
+.loader span:nth-child(2) {
+    width: 20px;
+    background: #87c38f;
+    animation-delay: -3s;
+}
+
+.loader span:nth-child(3) {
+    width: 40px;
+    background: #226f54;
+    animation-delay: -2.8s;
+}
+
+.loader span:nth-child(4) {
+    width: 60px;
+    background: #87c38f;
+    animation-delay: -2.6s;
+}
+
+.loader span:nth-child(5) {
+    width: 80px;
+    background: #226f54;
+    animation-delay: -2.4s;
+}
+
+.loader span:nth-child(6) {
+    width: 100px;
+    background: #87c38f;
+    animation-delay: -2.2s;
+}
+
+.loader span:nth-child(7) {
+    width: 20px;
+    background: #603a23;
+    animation: none
+}
+
+@keyframes loading {
+
+    0% {
+        transform: scaleX(1);
+    }
+
+    20% {
+        transform: scaleX(0.6);
+    }
+
+    40% {
+        transform: scaleX(0.6);
+    }
+
+    60% {
+        transform: scaleX(0.6);
+    }
+
+    80% {
+        transform: scaleX(1);
+    }
+
+    100% {
+        transform: scaleX(1);
+    }
+
+}
+
+@keyframes turn {
+    0% {
+        transform: scale(0.3) rotate(105deg);
+    }
+
+    20% {
+        transform: scale(0.3) rotate(-35deg);
+    }
+
+    40% {
+        transform: scale(0.3) rotate(-35deg);
+    }
+
+    60% {
+        transform: scale(0.3) rotate(-35deg);
+    }
+
+    80% {
+        transform: scale(0.3) rotate(105deg);
+    }
+
+    100% {
+        transform: scale(0.3) rotate(105deg);
+    }
+}
+
+.snow-container {
+    position: absolute;
+    height: 68vh;
+    width: 100%;
+    max-width: 100%;
+    top: 0;
+    overflow: hidden;
+    z-index: -1;
+    pointer-events: none;
+    background-color: transparent;
+}
+
+.snow {
+    display: block;
+    position: absolute;
+    z-index: -1;
+    top: -40px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+    transform: translate3d(0, -100%, 0);
+    -webkit-animation: snow linear infinite;
+    animation: snow linear infinite;
+}
+
+.snow.foreground {
+    background-image: url("https://dl6rt3mwcjzxg.cloudfront.net/assets/snow/snow-large-075d267ecbc42e3564c8ed43516dd557.png");
+    -webkit-animation-duration: 20s;
+    animation-duration: 20s;
+}
+
+.snow.foreground.layered {
+    -webkit-animation-delay: 10s;
+    animation-delay: 10s;
+}
+
+.snow.middleground {
+    background-image: image-url("https://dl6rt3mwcjzxg.cloudfront.net/assets/snow/snow-medium-0b8a5e0732315b68e1f54185be7a1ad9.png");
+    -webkit-animation-duration: 25s;
+    animation-duration: 25s;
+}
+
+.snow.middleground.layered {
+    -webkit-animation-delay: 12.5s;
+    animation-delay: 12.5s;
+}
+
+.snow.background {
+    background-image: image-url("https://dl6rt3mwcjzxg.cloudfront.net/assets/snow/snow-small-1ecd03b1fce08c24e064ff8c0a72c519.png");
+    -webkit-animation-duration: 35s;
+    animation-duration: 35s;
+}
+
+.snow.background.layered {
+    -webkit-animation-delay: 17.5s;
+    animation-delay: 17.5s;
+}
+
+@-webkit-keyframes snow {
+    0% {
+        transform: translate3d(0, -100%, 0);
+    }
+
+    100% {
+        transform: translate3d(15%, 100%, 0);
+    }
+}
+
+@keyframes snow {
+    0% {
+        transform: translate3d(0, -100%, 0);
+    }
+
+    100% {
+        transform: translate3d(15%, 100%, 0);
+    }
+}
+
+.loader::before {
+
+    content: url(./blob.svg);
+    width: 50px;
+    height: 90px;
+    transform: rotate(48deg);
+    position: absolute;
+    right: -10px;
+    bottom: -45px;
+}
+
+.loader::after {
+
+    content: url(./blob-3.svg);
+    width: 50px;
+    height: 90px;
+    transform: rotate(0deg);
+    position: absolute;
+    right: 75px;
+    bottom: -55px;
+}
